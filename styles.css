@@ -17,6 +17,8 @@
   background-size: cover;
   background-position: center;
   transition: opacity 0.6s ease, visibility 0.6s ease;
+  /* Safe area: keep content away from notch, status bar, home indicator (like React Native SafeAreaView) */
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
 }
 .valentine-intro.hidden {
   opacity: 0;
@@ -651,6 +653,10 @@ body[data-family-active="item-20"] .wrapper div#item-20 {
 		min-height: 100svh;
 		margin: 0;
 		padding: 2rem;
+		padding-top: max(2rem, env(safe-area-inset-top, 0));
+		padding-right: max(2rem, env(safe-area-inset-right, 0));
+		padding-bottom: max(2rem, env(safe-area-inset-bottom, 0));
+		padding-left: max(2rem, env(safe-area-inset-left, 0));
 		font-family: "Jura", sans-serif;
 		font-size: 1rem;
 		line-height: 1.5;
