@@ -533,6 +533,26 @@ body[data-family-active="item-20"] .wrapper div#item-20 {
   --image-outline-color: var(--clr-lines);
 }
 
+/* Mobile: carousel scrolls with page instead of sticking (avoid position:fixed following viewport) */
+@media (max-width: 768px), (hover: none) {
+  .carousel-section .wrapper > .center-image {
+    position: absolute;
+    position-anchor: unset;
+    position-area: unset;
+    inset: 0;
+    margin: auto;
+    width: calc(var(--radius));
+    height: calc(var(--radius));
+  }
+  .carousel-section .wrapper div::before {
+    position: absolute;
+    position-anchor: unset;
+    position-area: unset;
+    inset: 0;
+    margin: auto;
+  }
+}
+
 /* Arc section: button reveals gallery (images load only when opened) */
 .arc-section {
   margin-top: 1.5rem;
