@@ -1,0 +1,668 @@
+@import url(https://fonts.bunny.net/css?family=jura:300,500);
+@import url(https://fonts.bunny.net/css?family=crushed:400);
+
+/* ========== Valentine envelope intro (must open first) ========== */
+.valentine-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  font-family: 'Pangolin', cursive;
+  font-size: 2vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFF1E6;
+  background-image: url(https://i.ibb.co/72TqgDk/image-15.png);
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.valentine-intro.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.main-carousels {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.main-carousels.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.valentine-intro .container {
+  position: relative;
+  top: 0;
+  cursor: pointer;
+}
+.valentine-intro .envelope {
+  position: relative;
+  background: #FFF1E6;
+  height: 48vmin;
+  width: 76vmin;
+}
+.valentine-intro .card {
+  position: absolute;
+  background: white;
+  height: 40vmin;
+  width: 66vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 5vmin;
+  top: 0;
+  animation: envelope-slide-rev 0.2s ease-out;
+}
+.valentine-intro .message {
+  position: absolute;
+  top: 0.5vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  color: #c92d32;
+  font-size: clamp(0.9rem, 3vmin, 1.8rem);
+  font-weight: 700;
+  text-align: center;
+  padding: 0 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.valentine-intro .reindeer {
+  position: relative;
+  background: #8a5440;
+  height: 16vmin;
+  width: 18vmin;
+  border-radius: 49% 51% 52% 48% / 71% 72% 28% 29%;
+  display: flex;
+  box-shadow: 0 1vmin 0.3vmin #aebec7;
+}
+.valentine-intro .reindeer::after {
+  content: '';
+  position: absolute;
+  background: #a96758;
+  height: 6.4vmin;
+  width: 15vmin;
+  border-radius: 50%;
+  top: 9.5vmin;
+  left: 1.5vmin;
+}
+.valentine-intro .reindeer::before {
+  content: '';
+  position: absolute;
+  background: #a96758;
+  height: 3.2vmin;
+  width: 4vmin;
+  border-radius: 50%;
+  top: 11.2vmin;
+  left: 1.2vmin;
+  box-shadow: 12vmin 0 #a96758;
+}
+.valentine-intro .face {
+  position: relative;
+  background: #e4494c;
+  height: 2.4vmin;
+  width: 4vmin;
+  border-radius: 50%;
+  left: 6.8vmin;
+  top: 8.8vmin;
+  border-bottom: 0.4vmin solid #c92d32;
+  border-right: 0.4vmin solid #c92d32;
+  z-index: 1;
+}
+.valentine-intro .face::after {
+  content: '';
+  position: absolute;
+  background: black;
+  width: 1vmin;
+  height: 1vmin;
+  border-radius: 50%;
+  top: -0.4vmin;
+  left: -2vmin;
+  box-shadow: 7.8vmin 0 0 black;
+  z-index: 1;
+}
+.valentine-intro .face::before {
+  content: '';
+  position: absolute;
+  background: transparent;
+  height: 0.8vmin;
+  width: 0.8vmin;
+  border-radius: 50%;
+  border-right: 0.3vmin solid black;
+  border-bottom: 0.3vmin solid black;
+  top: 3.2vmin;
+  left: 3.6vmin;
+  z-index: 0;
+}
+.valentine-intro .antlers {
+  position: relative;
+  background: black;
+  height: 9.6vmin;
+  width: 1.6vmin;
+  top: -6.4vmin;
+  left: -1.6vmin;
+  border-radius: 40%;
+  transform: rotate(-25deg);
+  z-index: -1;
+}
+.valentine-intro .antlers::before {
+  content: '';
+  position: absolute;
+  background: black;
+  height: 5.6vmin;
+  width: 1.6vmin;
+  border-radius: 40%;
+  top: 1.6vmin;
+  left: -1.6vmin;
+  transform: rotate(-30deg);
+}
+.valentine-intro .antlers::after {
+  content: '';
+  position: absolute;
+  background: black;
+  height: 4.8vmin;
+  width: 1.6vmin;
+  border-radius: 40% 40% 20% 20%;
+  top: 0.8vmin;
+  transform: rotate(35deg);
+  left: 1.4vmin;
+}
+.valentine-intro .antlers.right {
+  transform: scaleX(-1) rotate(-20deg);
+  top: -6.4vmin;
+  left: 5.6vmin;
+}
+.valentine-intro .ear {
+  position: relative;
+  background: #8b5340;
+  height: 8vmin;
+  width: 4vmin;
+  border-radius: 50%;
+  left: 7.2vmin;
+  transform: rotate(45deg);
+  top: -1.6vmin;
+}
+.valentine-intro .ear::before {
+  content: '';
+  position: absolute;
+  background: #fccec8;
+  height: 3.2vmin;
+  width: 2.4vmin;
+  border-radius: 50% 50% 10% 10%;
+  top: 2vmin;
+  left: 0.8vmin;
+  z-index: -5;
+}
+.valentine-intro .ear.left {
+  transform: scaleX(-1) rotate(50deg);
+  top: -0.8vmin;
+  left: -13vmin;
+}
+.valentine-intro .cover {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 24vmin solid #CB997E;
+  border-left: 38vmin solid transparent;
+  border-right: 38vmin solid transparent;
+  top: 24vmin;
+  z-index: 3;
+}
+.valentine-intro .cover::after {
+  position: absolute;
+  content: '';
+  border-left: 39vmin solid #CB997E;
+  border-bottom: 24vmin solid transparent;
+  border-top: 24vmin solid transparent;
+  top: -24vmin;
+  left: -38vmin;
+}
+.valentine-intro .cover::before {
+  position: absolute;
+  content: '';
+  border-right: 39vmin solid #CB997E;
+  border-bottom: 24vmin solid transparent;
+  border-top: 24vmin solid transparent;
+  top: -24vmin;
+  left: -1vmin;
+}
+.valentine-intro .lid {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 24vmin solid #B08968;
+  border-left: 38vmin solid transparent;
+  border-right: 38vmin solid transparent;
+  top: 0;
+  transform-origin: top;
+  animation: envelope-open-rev 2s;
+}
+.valentine-intro .container.opened .lid {
+  animation: envelope-open 0.5s ease forwards;
+}
+.valentine-intro .container.opened .card {
+  animation: envelope-slide 0.2s ease 0.5s forwards;
+}
+@keyframes envelope-open {
+  100% { transform: rotateX(180deg); }
+}
+@keyframes envelope-slide {
+  100% { transform: translateY(-18vmin); z-index: 2; }
+}
+@keyframes envelope-open-rev {
+  from { transform: rotateX(-180deg); }
+}
+@keyframes envelope-slide-rev {
+  from { transform: translateY(-18vmin); }
+}
+.valentine-intro .shadow {
+  position: relative;
+  top: 5vmin;
+  border-radius: 50%;
+  opacity: 0.7;
+  height: 3vmin;
+  width: 76vmin;
+  background: #DDB892;
+}
+.valentine-intro .enter-btn {
+  position: absolute;
+  bottom: 8vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  font-family: 'Pangolin', cursive;
+  font-size: 1.8rem;
+  color: #fff;
+  background: #c92d32;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.valentine-intro .enter-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.valentine-intro .enter-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+  background: #a82428;
+}
+
+@layer base, demo;
+
+@layer demo {
+  body{
+    font-family: "Jura", sans-serif;
+    min-height: 100svh;
+  }
+
+  .carousel-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @property --rotation{
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0;
+  }
+  input{
+    z-index: 190;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+	.wrapper {
+		--card-trans-duration: 1000ms;
+		--card-trans-easing:linear(0, 0.01 0.8%, 0.038 1.6%, 0.154 3.4%, 0.781 9.7%, 1.01 12.5%, 1.089 13.8%, 1.153 15.2%, 1.195 16.6%, 1.219 18%, 1.224 19.7%, 1.208 21.6%, 1.172 23.6%, 1.057 28.6%, 1.007 31.2%, 0.969 34.1%, 0.951 37.1%, 0.953 40.9%, 0.998 50.4%, 1.011 56%, 0.998 74.7%, 1);
+
+		--card-width: clamp(40px,7vw, 120px);
+		--card-border-radius: 1vw;
+
+		--radius: 40vmin; 
+		--cards: sibling-count();
+		--arc-size: .95;             /* essentially the distance between cards */
+		--arc-center: 0.275;        /* start at bottom to last card will be at the top */
+		--arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
+
+		--arc-shift-delta: 0.0075;
+	
+	
+		anchor-name: --center;
+
+		position: relative;
+		margin: auto;
+		width: var(--radius);
+		height: var(--radius);
+		aspect-ratio: 1;
+		transform: rotate(var(--rotation));
+		transition: transform 700ms linear;
+		display: grid;
+		place-content: center;
+		h1{
+			margin: 0;
+			text-align: center;
+			font-size: clamp(1.2rem, 3.5vw + 0.045rem, 3rem);
+		}
+		/* single center image (set by JS); avoids loading 20 background images */
+		& > .center-image {
+			position: fixed;
+			position-anchor: --center;
+			position-area: span-all;
+			width: calc(var(--radius));
+			aspect-ratio: 1;
+			border-radius: 9in;
+			box-sizing: border-box;
+			outline: 10px solid var(--clr-lines);
+			outline-offset: -10px;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			pointer-events: none;
+			transform: rotate(calc(var(--rotation) * -1));
+			z-index: 2;
+		}
+		div {
+		--card-i: var(--i);
+		--arc-step: calc(var(--arc-size) / (20 - 1));
+		--arc-shift: calc(var(--arc-shift-delta) * var(--d, 1));
+
+		 --card-offset-distance: calc(
+				(var(--arc-start)
+				 + (var(--card-i) - 1) * var(--arc-step)
+				 + var(--arc-shift)
+				) * 100%);
+
+   
+		 &:has(a:hover),
+		 &:target{
+			 --title-opacity: 1;
+		 }
+		 &:target{
+			--zindex: 2;
+			--center-opacity: 1;
+			--center-scale: 1;
+			--image-outline-color: var(--clr-lines);
+		}
+		&::before,
+		&::after{
+			 content: '';
+			 position: fixed;
+			 position-anchor: --center;
+			transform: rotate(calc(var(--rotation) * -1));
+			 transition-timing-function: ease-in-out;
+
+		 }
+		 /* large image in center: single element, image set by JS (avoids loading 20 images) */
+		 &::before{
+			 position-area: span-all;
+			 width: calc(var(--radius) );
+			 aspect-ratio: 1;
+			 border-radius: 9in;
+			 background: transparent;
+			 box-sizing: border-box;
+			 outline: 10px solid var(--clr-lines);
+			 outline-offset: -10px;
+			 opacity: var(--center-opacity, 0);
+			 scale: var(--center-scale, 0);
+			 pointer-events: none;
+			 transition-property: scale,opacity;
+			 transition-duration: 300ms, 150ms;
+		 }
+		 /* data-title overlay removed – no title shown */
+		 &::after{
+			 display: none;
+			 content: none;
+		 }
+   
+   /* links with images are placed in a circle */
+		a{
+			position: absolute;
+			display: block;
+			width: var(--card-width);
+			aspect-ratio:4/6;
+			border-radius: var(--card-border-radius);
+			border: 2px solid var(--clr-bg);
+			offset-path: circle(var(--radius) at 50% 50%);
+			offset-distance: var(--card-offset-distance);
+			offset-rotate: auto;
+			offset-anchor:50% 0%;
+			transition: offset var(--card-trans-duration) var(--card-trans-easing);
+			z-index: var(--zindex, 1);
+			anchor-name: --card;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				border-radius: inherit;
+				outline: 5px solid var(--image-outline-color,transparent);
+				outline-offset: -5px;
+				transition: outline 300ms ease-in-out;
+			} 
+		}
+	}
+
+/* ============================================================
+   FORWARD siblings (clockwise / +)
+   ============================================================ */
+/* +1 */
+.wrapper:has(> *:hover) > *:hover + * ,
+.wrapper:has(> :last-child:hover) > :nth-child(1)         { --d:  3; }
+
+/* +2 */
+.wrapper:has(> *:hover) > *:hover + * + * ,
+.wrapper:has(> :last-child:hover) > :nth-child(2),
+.wrapper:has(> :nth-last-child(2):hover) > :nth-child(1)  { --d:  2; }
+
+/* +3 */
+.wrapper:has(> *:hover) > *:hover + * + * + * ,
+.wrapper:has(> :last-child:hover) > :nth-child(3),
+.wrapper:has(> :nth-last-child(2):hover) > :nth-child(2),
+.wrapper:has(> :nth-last-child(3):hover) > :nth-child(1)  { --d:  1; }
+
+/* +4 */
+.wrapper:has(> *:hover) > *:hover + * + * + * + *,
+.wrapper:has(> :last-child:hover) > :nth-child(4),
+.wrapper:has(> :nth-last-child(2):hover) > :nth-child(3),
+.wrapper:has(> :nth-last-child(3):hover) > :nth-child(2),
+.wrapper:has(> :nth-last-child(4):hover) > :nth-child(1)  { --d:  .5; }
+
+/* ============================================================
+   BACKWARD siblings (counter-clockwise / −)
+   ============================================================ */
+/* −1 */
+.wrapper *:has(+ *:hover), 
+.wrapper:has(> :nth-child(1):hover) :nth-last-child(1)    { --d: -3; }
+
+/* −2 */
+.wrapper *:has(+ * + *:hover), 
+.wrapper:has(> :nth-child(1):hover) :nth-last-child(2),
+.wrapper:has(> :nth-child(2):hover) :nth-last-child(1)    { --d: -2; }
+
+/* −3 */
+.wrapper *:has(+ * + * + *:hover),
+.wrapper:has(> :nth-child(1):hover) :nth-last-child(3),
+.wrapper:has(> :nth-child(2):hover) :nth-last-child(2),
+.wrapper:has(> :nth-child(3):hover) :nth-last-child(1)    { --d: -1; }
+
+/* −4 */
+.wrapper *:has(+ * + * + * + *:hover),
+.wrapper:has(> :nth-child(1):hover) :nth-last-child(4),
+.wrapper:has(> :nth-child(2):hover) :nth-last-child(3),
+.wrapper:has(> :nth-child(3):hover) :nth-last-child(2),
+.wrapper:has(> :nth-child(4):hover) :nth-last-child(1)    { --d: -.5; }
+}
+
+/* Family carousel: show center image without scrolling (JS sets data-family-active) */
+body[data-family-active="item-1"] .wrapper div#item-1,
+body[data-family-active="item-2"] .wrapper div#item-2,
+body[data-family-active="item-3"] .wrapper div#item-3,
+body[data-family-active="item-4"] .wrapper div#item-4,
+body[data-family-active="item-5"] .wrapper div#item-5,
+body[data-family-active="item-6"] .wrapper div#item-6,
+body[data-family-active="item-7"] .wrapper div#item-7,
+body[data-family-active="item-8"] .wrapper div#item-8,
+body[data-family-active="item-9"] .wrapper div#item-9,
+body[data-family-active="item-10"] .wrapper div#item-10,
+body[data-family-active="item-11"] .wrapper div#item-11,
+body[data-family-active="item-12"] .wrapper div#item-12,
+body[data-family-active="item-13"] .wrapper div#item-13,
+body[data-family-active="item-14"] .wrapper div#item-14,
+body[data-family-active="item-15"] .wrapper div#item-15,
+body[data-family-active="item-16"] .wrapper div#item-16,
+body[data-family-active="item-17"] .wrapper div#item-17,
+body[data-family-active="item-18"] .wrapper div#item-18,
+body[data-family-active="item-19"] .wrapper div#item-19,
+body[data-family-active="item-20"] .wrapper div#item-20 {
+  --title-opacity: 1;
+  --zindex: 2;
+  --center-opacity: 1;
+  --center-scale: 1;
+  --image-outline-color: var(--clr-lines);
+}
+
+/* Arc section: button reveals gallery (images load only when opened) */
+.arc-section {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.arc-reveal-btn {
+  font: inherit;
+  font-family: 'Pangolin', cursive;
+  font-size: 1.25rem;
+  color: var(--clr-txt);
+  background: transparent;
+  border: 2px solid var(--clr-lines);
+  border-radius: 2rem;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.arc-reveal-btn:hover {
+  background: var(--clr-lines);
+}
+.arc-section.arc-expanded .arc-reveal-btn {
+  margin-bottom: 1rem;
+}
+
+/* Arc carousel (7 cards in an arc) – below the circular carousel */
+.arc-carousel {
+  --card-trans-duration: 1000ms;
+  --card-trans-easing: linear(0, 0.01 0.8%, 0.038 1.6%, 0.154 3.4%, 0.781 9.7%, 1.01 12.5%, 1.089 13.8%, 1.153 15.2%, 1.195 16.6%, 1.219 18%, 1.224 19.7%, 1.208 21.6%, 1.172 23.6%, 1.057 28.6%, 1.007 31.2%, 0.969 34.1%, 0.951 37.1%, 0.953 40.9%, 0.998 50.4%, 1.011 56%, 0.998 74.7%, 1);
+  --card-border-radius: 10px;
+  --card-width: 20vmin;
+  --radius: 50vmin;
+  --cards: 7;
+  --arc-size: 0.25;
+  --arc-center: 0.75;
+  --arc-start: calc(var(--arc-center) - var(--arc-size) / 2);
+  --arc-shift: 0;
+  --arc-shift-delta: 0.01;
+
+  position: relative;
+  width: 100vmin;
+  height: 55vmin;
+  margin: 0 auto 4rem;
+}
+
+.arc-carousel > div {
+  --card-i: 0;
+  --arc-step: calc(var(--arc-size) / (var(--cards) - 1));
+  position: absolute;
+  width: var(--card-width);
+  aspect-ratio: 4 / 6;
+  background: white;
+  border-radius: var(--card-border-radius);
+  offset-path: circle(var(--radius) at 50% 100%);
+  offset-distance: calc(
+    (var(--arc-start) + (var(--card-i) - 1) * var(--arc-step) + var(--arc-shift)) * 100%
+  );
+  offset-rotate: auto;
+  offset-anchor: 50% 0%;
+  transition: all var(--card-trans-duration) var(--card-trans-easing);
+}
+
+.arc-carousel > div:nth-child(1) { --card-i: 1; }
+.arc-carousel > div:nth-child(2) { --card-i: 2; }
+.arc-carousel > div:nth-child(3) { --card-i: 3; }
+.arc-carousel > div:nth-child(4) { --card-i: 4; }
+.arc-carousel > div:nth-child(5) { --card-i: 5; }
+.arc-carousel > div:nth-child(6) { --card-i: 6; }
+.arc-carousel > div:nth-child(7) { --card-i: 7; }
+
+.arc-carousel > div:where(:nth-child(1), :nth-child(7)) { z-index: 0; }
+.arc-carousel > div:where(:nth-child(2), :nth-child(6)) { z-index: 1; }
+.arc-carousel > div:where(:nth-child(3), :nth-child(5)) { z-index: 2; }
+.arc-carousel > div:nth-child(4) { z-index: 3; }
+
+.arc-carousel > div:hover {
+  offset-anchor: 50% 10%;
+}
+.arc-carousel > div:hover + div { --arc-shift: calc(var(--arc-shift-delta) * 3); }
+.arc-carousel > div:hover + div + div { --arc-shift: calc(var(--arc-shift-delta) * 2); }
+.arc-carousel > div:hover + div + div + div { --arc-shift: calc(var(--arc-shift-delta) * 1); }
+.arc-carousel > div:has(+ div:hover) { --arc-shift: calc(var(--arc-shift-delta) * -3); }
+.arc-carousel > div:has(+ div + div:hover) { --arc-shift: calc(var(--arc-shift-delta) * -2); }
+.arc-carousel > div:has(+ div + div + div:hover) { --arc-shift: calc(var(--arc-shift-delta) * -1); }
+
+.arc-carousel > div > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* general styling not relevant for this demo */
+@layer base {
+	*,::before,::after {
+		box-sizing: border-box;
+	}
+	html {
+		scroll-behavior: auto; /* avoid delay from browser smooth-scroll default */
+	}
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(16, 24, 40);
+		--bg-light: rgb(248, 244, 238);
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245);
+		--line-light: rgba(0 0 0 / .25);
+		--line-dark: rgba(255 255 255 / .25);
+    
+    --clr-bg: light-dark(var(--bg-light), var(--bg-dark));
+    --clr-txt: light-dark(var(--txt-light), var(--txt-dark));
+    --clr-lines: light-dark(var(--line-light), var(--line-dark));
+	}
+ 
+	body {
+		background-color: var(--clr-bg);
+		color: var(--clr-txt);
+		min-height: 100svh;
+		margin: 0;
+		padding: 2rem;
+		font-family: "Jura", sans-serif;
+		font-size: 1rem;
+		line-height: 1.5;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+	}
+	h1 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+
+
+}
+}
