@@ -8,8 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- add audio later – set src to your file (e.g. audio/valentine.mp3) and trigger play in envelope.js -->
-<audio id="valentine-audio" preload="none" loop aria-hidden="true"></audio>
+<audio id="valentine-audio" preload="none" loop src="audio/valentine.mp3" aria-hidden="true"></audio>
 
 <div class="valentine-intro" id="valentine-intro">
   <div class="container" id="envelope-container">
@@ -119,7 +118,7 @@
 </div>
 
 <div class="arc-section" id="arc-section">
-  <button type="button" class="arc-reveal-btn" id="arc-reveal-btn" aria-expanded="false" aria-controls="arc-carousel">See our gallery ♥</button>
+  <button type="button" class="arc-reveal-btn" id="arc-reveal-btn" aria-expanded="false" aria-controls="arc-carousel">See Memories ♥</button>
   <div class="arc-carousel" id="arc-carousel" hidden>
     <div><img data-src="images/Wife8.png" alt="" loading="lazy" decoding="async"></div>
     <div><img data-src="images/Wife1.png" alt="" loading="lazy" decoding="async"></div>
@@ -198,7 +197,7 @@
       if (arcSection.classList.contains('arc-expanded')) {
         arcSection.classList.remove('arc-expanded');
         arcRevealBtn.setAttribute('aria-expanded', 'false');
-        arcRevealBtn.textContent = 'See our gallery ♥';
+        arcRevealBtn.textContent = 'See Memories ♥';
         arcCarousel.hidden = true;
       } else {
         arcCarousel.querySelectorAll('img[data-src]').forEach(function(img) {
@@ -206,7 +205,7 @@
         });
         arcSection.classList.add('arc-expanded');
         arcRevealBtn.setAttribute('aria-expanded', 'true');
-        arcRevealBtn.textContent = 'Hide gallery ♥';
+        arcRevealBtn.textContent = 'Hide Memories ♥';
         arcCarousel.hidden = false;
       }
     });
